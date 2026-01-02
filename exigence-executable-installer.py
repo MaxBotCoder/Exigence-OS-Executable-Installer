@@ -126,3 +126,4 @@ def command_input(command):
 while commands != "exit" and commands != "quit":
     commands = input("Input name of file to install: ")
     command_input(commands)
+
