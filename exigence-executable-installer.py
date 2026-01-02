@@ -41,13 +41,13 @@ def scan_executable_name():
     for x in filename:
         iterations += 1
         if filename[0:iterations] == unrecomended_file[1]:
-            print("An unrecomended appilcation has been detected.\nExigence os recomends you use the built in usb flashing utility instead.\nHowever if you still wish to install this driver please use the standard installation method.")
+            print("\nAn unrecomended appilcation has been detected.\nExigence os recomends you use the built in usb flashing utility instead.\nHowever if you still wish to install this driver please use the standard installation method.")
             quit()
         elif filename[0:iterations] == unrecomended_file[0]:
-            print("An unrecomended nvidia driver has been detected.\nExigence os recomends you use the built in driver installation utility for nvidia driver.\nHowever if you still wish to install this driver please use the standard terminal method.")
+            print("\nAn unrecomended nvidia driver has been detected.\nExigence os recomends you use the built in driver installation utility for nvidia driver.\nHowever if you still wish to install this driver please use the standard terminal method.")
             quit()
         elif filename[0:iterations] == special_files[0]:
-            print("installing davinci resolve")
+            print("\ninstalling davinci resolve")
             quit()
         else:
             typical_file = True          
