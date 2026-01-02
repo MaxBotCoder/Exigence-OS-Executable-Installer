@@ -114,7 +114,7 @@ def file_input(command):
 def command_input(command):
     if command.lower() == "help":
         help()
-    elif command == "exit" or command == "quit":
+    elif command.lower() == "exit" or command == "quit":
         print("exiting...")
     elif os.path.exists(command):
         file_input(command)
