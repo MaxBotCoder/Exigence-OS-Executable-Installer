@@ -25,7 +25,7 @@ filename = ""
 #functions
 #help menu
 def help():
-    print("Just copy and paste your desired executable below and let the installer take care of it!")
+    print("Just copy and paste your desired executable below, press enter, type in your passowrd and let the installer take care of it!")
 
 def detect_executable_name_start():
     iterations = 0
