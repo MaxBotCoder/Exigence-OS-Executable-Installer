@@ -34,7 +34,7 @@ def detect_executable_name_start():
         if commands[iterations] == "/":
             filename = commands[iterations+1:]
             print(filename)
-            quit()
+            break
 
 def scan_executable_name():
     iterations = 0
@@ -46,7 +46,7 @@ def scan_executable_name():
         elif filename[0:iterations] == unrecomended_file[1]:
             quit()
             print("An unrecomended nvidia driver has been detected.\nExigence os recomends you use the built in driver installation utility for nvidia driver.\nHowever if you still wish to install this driver please use the standard terminal method.")
-        elif filename[0:iterations] == special_files[1]:
+        elif filename[0:iterations] == special_files[0]:
             print("installing davinci resolve")
             quit()
         else:
@@ -55,7 +55,7 @@ def scan_executable_name():
 #install deb package
 def install_deb():
     detect_executable_name_start()
-    os.system(f"su && apt update && sudo apt upgrade -y && sudo dpkg -i {commands} -y")
+    os.system(f"su && sudo apt update && sudo apt upgrade -y && sudo dpkg -i {commands} -y")
     print(f"{filename} successfully installed!")
     quit()
 
@@ -96,16 +96,16 @@ def file_input(command):
     elif command[-3:] == ".7z":
         print(".7z files are not supported please extract the .7z file before hand \nby right clicking on it then clicking the extract button.")
     elif command[-4:] == ".deb":
-        print(f"Proceeding the installation of {command}")
+        print(f"Processing the installation of {command}")
         install_deb()
     elif command[-4:] == ".appimage":
-        print(f"Proceeding the installation of {command}")
+        print(f"Processing the installation of {command}")
         install_appimage()
     elif command[-4:] == ".run":
-        print(f"Proceeding the installation of {command}")
+        print(f"Processing the installation of {command}")
         install_run()
     elif command[-11:] == ".flatpakref":
-        print(f"Proceeding the installation of {command}")
+        print(f"Processding the installation of {command}")
         install_flatpak()
     else:
         print("Unrecognised file type.")
