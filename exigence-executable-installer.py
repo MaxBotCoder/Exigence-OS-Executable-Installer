@@ -11,7 +11,7 @@ import os
 commands = ""
 
 #file name input
-#filename = ""
+filename = ""
 
 #functions
 #help menu
@@ -22,7 +22,11 @@ def detect_executable_name_start():
     iterations = 0
     for x in commands:
         iterations -= 1
-        print(commands[iterations:])
+        if commands[iterations] == "/":
+            filename = commands[iterations+1:]
+            print(filename)
+            quit()
+
 
 #install deb package
 def install_deb():
@@ -31,25 +35,21 @@ def install_deb():
     quit()
 
 #install app image
-#balena etcher installation automation
-def install_balena_etcher():
-    print("")
-
 def install_appimage():
-    print("")
+    detect_executable_name_start()
+    #print("An unrecomended appilcation has been detected.\nExigence os recomends you use the built in usb flashing utility instead.\nHowever if you still wish to install this driver please use the standard installation method.")
+
 
 #general install .run file
-#nvidia driver instllation automation
-def install_nvidia():
-    print("An unapproved nvidia driver has been detected.\nExigence os recomends you use the built in driver installation utility for nvidia driver.\nHowever if you still with to install this driver please use the standard terminal method.")
-
 #davinci resolve installation automation
 def install_davinc_resolve():
     print("filler")
 
 #standard .run file automation
 def install_run():
-    print("filler")
+    detect_executable_name_start()
+    #print("An unrecomended nvidia driver has been detected.\nExigence os recomends you use the built in driver installation utility for nvidia driver.\nHowever if you still wish to install this driver please use the standard terminal method.")
+
 
 #install flatpak
 def install_flatpak():
@@ -72,10 +72,13 @@ def file_input(command):
         install_deb()
     elif command[-4:] == ".appimage":
         print(f"Proceeding the installation of {command}")
+        install_appimage()
     elif command[-4:] == ".run":
         print(f"Proceeding the installation of {command}")
+        install_run()
     elif command[-11:] == ".flatpakref":
         print(f"Proceeding the installation of {command}")
+        install_flatpak()
     else:
         print("Unrecognised file type.")
 
