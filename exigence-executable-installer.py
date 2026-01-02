@@ -32,20 +32,20 @@ def detect_executable_name_start():
     for x in commands:
         iterations -= 1
         if commands[iterations] == "/":
+            global filename
             filename = commands[iterations+1:]
-            print(filename)
             break
 
 def scan_executable_name():
     iterations = 0
     for x in filename:
         iterations += 1
-        if filename[0:iterations] == unrecomended_file[0]:
-            quit()
+        if filename[0:iterations] == unrecomended_file[1]:
             print("An unrecomended appilcation has been detected.\nExigence os recomends you use the built in usb flashing utility instead.\nHowever if you still wish to install this driver please use the standard installation method.")
-        elif filename[0:iterations] == unrecomended_file[1]:
             quit()
+        elif filename[0:iterations] == unrecomended_file[0]:
             print("An unrecomended nvidia driver has been detected.\nExigence os recomends you use the built in driver installation utility for nvidia driver.\nHowever if you still wish to install this driver please use the standard terminal method.")
+            quit()
         elif filename[0:iterations] == special_files[0]:
             print("installing davinci resolve")
             quit()
@@ -114,6 +114,8 @@ def file_input(command):
 def command_input(command):
     if command.lower() == "help":
         help()
+    elif command == "exit" or command == "quit":
+        print("exiting...")
     elif os.path.exists(command):
         file_input(command)
     else:
@@ -121,6 +123,6 @@ def command_input(command):
         
 #calling functions
 #terminal popup
-while commands != "exit" or "quit":
+while commands != "exit" and commands != "quit":
     commands = input("Input name of file to install: ")
     command_input(commands)
