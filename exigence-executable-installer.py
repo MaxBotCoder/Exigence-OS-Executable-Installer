@@ -41,18 +41,22 @@ def scan_executable_name():
     for x in filename:
         iterations += 1
         if filename[0:iterations] == unrecomended_file[0]:
+            quit()
             print("An unrecomended appilcation has been detected.\nExigence os recomends you use the built in usb flashing utility instead.\nHowever if you still wish to install this driver please use the standard installation method.")
         elif filename[0:iterations] == unrecomended_file[1]:
+            quit()
             print("An unrecomended nvidia driver has been detected.\nExigence os recomends you use the built in driver installation utility for nvidia driver.\nHowever if you still wish to install this driver please use the standard terminal method.")
         elif filename[0:iterations] == special_files[1]:
             print("installing davinci resolve")
+            quit()
         else:
-            typical_file = True            
+            typical_file = True          
 
 #install deb package
 def install_deb():
+    detect_executable_name_start()
     os.system(f"su && apt update && sudo apt upgrade -y && sudo dpkg -i {commands} -y")
-    print(".deb successfully installed!")
+    print(f"{filename} successfully installed!")
     quit()
 
 #install app image
@@ -61,22 +65,23 @@ def install_appimage():
     scan_executable_name()
     if typical_file is True:
         os.system(f"su && sudo apt update && sudo apt upgrade -y && sudo ./{commands}")
+        print(f"{filename} successfully installed!")
+        quit()
 
-#general install .run file
-#davinci resolve installation automation
-def install_davinc_resolve():
-    print("filler")
-
-#standard .run file automation
 def install_run():
     detect_executable_name_start()
     scan_executable_name()
     if typical_file is True:
         os.system(f"su && sudo apt update && sudo apt upgrade -y && sudo ./{commands}")
+        print(f"{filename} successfully installed!")
+        quit()
 
 #install flatpak
 def install_flatpak():
-    print("filler")
+    detect_executable_name_start()
+    os.system(f"su && apt sudo apt update && sudo apt upgrade -y && sudo flatpak install --from {commands}")
+    print(f"{filename} successfully installed!")
+    quit()
 
 #install elf
 def install_elf():
