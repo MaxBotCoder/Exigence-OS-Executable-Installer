@@ -1,5 +1,5 @@
 #welcome message
-print("Welcome to Exegence-OS-executable-installer version 0.1.0 alpha")
+print("Welcome to Exegence-OS-executable-installer version 0.1 alpha")
 print("\nRight click and press copy on the executable then paste it in the terminal below.\n")
 print("Supported executables are: .debs, .appiamge, .run and flatpaks")
 
@@ -25,7 +25,7 @@ filename = ""
 #functions
 #help menu
 def help():
-    print("Just copy and paste your desired executable below, press enter, type in your passowrd and let the installer take care of it!")
+    print("hello")
 
 def detect_executable_name_start():
     iterations = 0
@@ -44,7 +44,7 @@ def scan_executable_name():
             print("\nAn unrecomended appilcation has been detected.\nExigence os recomends you use the built in usb flashing utility instead.\nHowever if you still wish to install this driver please use the standard installation method.")
             quit()
         elif filename[0:iterations] == unrecomended_file[0]:
-            print("\nAn unrecomended nvidia driver has been detected.\nExigence os recomends you use the built in driver installation utility for nvidia drivers.\nHowever if you still wish to install this driver please use the standard terminal method.")
+            print("\nAn unrecomended nvidia driver has been detected.\nExigence os recomends you use the built in driver installation utility for nvidia driver.\nHowever if you still wish to install this driver please use the standard terminal method.")
             quit()
         elif filename[0:iterations] == special_files[0]:
             print("\ninstalling davinci resolve")
@@ -114,7 +114,7 @@ def file_input(command):
 def command_input(command):
     if command.lower() == "help":
         help()
-    elif command.lower() == "exit" or command == "quit":
+    elif command == "exit" or command == "quit":
         print("exiting...")
     elif os.path.exists(command):
         file_input(command)
@@ -126,4 +126,3 @@ def command_input(command):
 while commands != "exit" and commands != "quit":
     commands = input("Input name of file to install: ")
     command_input(commands)
-
