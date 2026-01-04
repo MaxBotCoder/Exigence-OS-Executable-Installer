@@ -1,5 +1,6 @@
 #starting message
 print("Welcome to the exigence executable installer, installation script v2")
+print("Dont forget to use root!")
 
 #modules
 import os
@@ -16,6 +17,7 @@ os.system("mv exigence-executable-installer.desktop /usr/share/applications")
 
 #removes traces of intervention
 print("Coming soon!")
+
 
 
 
