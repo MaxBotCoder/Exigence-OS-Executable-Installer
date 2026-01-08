@@ -48,6 +48,7 @@ def scan_executable_name():
             quit()
         elif filename[0:iterations] == special_files[0]:
             print("\ninstalling davinci resolve")
+            os.system("su && apt update && apt upgrade && apt install docker")
             quit()
         else:
             typical_file = True          
