@@ -1,6 +1,9 @@
 #starting message
 print("Welcome to the exigence executable installer, installation script v2")
-print("Dont forget to use root!")
+
+#root confirmation
+if os.geteuid != 0:
+  print("Please run this program with elevated root privaleges. On debian this can be done via su, on ubuntu this is done via sudo su.")
 
 #modules
 import os
@@ -17,6 +20,7 @@ os.system("mv exigence-executable-installer.desktop /usr/share/applications")
 
 #removes traces of intervention
 print("Coming soon!")
+
 
 
 
