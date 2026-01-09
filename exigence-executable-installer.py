@@ -1,7 +1,12 @@
 #welcome message
-print("Welcome to Exegence-OS-executable-installer version 0.1.1.5 alpha")
+print("Welcome to Exegence-OS-executable-installer version 0.1.2 alpha")
 print("\nRight click and press copy on the executable then paste it in the terminal below.\n")
 print("Supported executables are: .debs, .appiamge, .run and flatpaks")
+
+#root confirmation
+if os.geteuid != 0:
+    print("Please run with elevated root privaleges! On debian it is via su but on ubuntu its via sudo su.")
+    quit()
 
 # modules
 import os
@@ -48,7 +53,7 @@ def scan_executable_name():
             quit()
         elif filename[0:iterations] == special_files[0]:
             print("\ninstalling davinci resolve")
-            os.system("su && apt update && apt upgrade && apt install docker")
+            os.system("apt update && apt upgrade && apt install docker")
             quit()
         else:
             typical_file = True          
@@ -59,7 +64,7 @@ def install_deb():
     detect_executable_name_start()
     yn = input(f"Are you sure you want to install (yes or no): {filename}")
     if yn == "y" or yn == "n":
-    os.system(f"su && sudo apt update && sudo apt upgrade -y && sudo dpkg -i {commands} -y")
+    os.system(f"apt update && apt upgrade -y && dpkg -i {commands} -y")
     print(f"{filename} successfully installed!")
     quit()
 
@@ -82,7 +87,7 @@ def install_run():
     if yn == "y" or yn == "n":
     scan_executable_name()
     if typical_file is True:
-        os.system(f"su && sudo apt update && sudo apt upgrade -y && sudo ./{commands}")
+        os.system(f"apt update && apt upgrade -y && ./{commands}")
         print(f"{filename} successfully installed!")
         quit()
 
@@ -92,7 +97,7 @@ def install_flatpak():
     detect_executable_name_start()
     yn = input(f"Are you sure you want to install (yes or no): {filename}")
     if yn == "y" or yn == "n":
-    os.system(f"su && apt sudo apt update && sudo apt upgrade -y && sudo flatpak install --from {commands}")
+    os.system(f"apt update && apt upgrade -y && flatpak install --from {commands}")
     print(f"{filename} successfully installed!")
     quit()
 
