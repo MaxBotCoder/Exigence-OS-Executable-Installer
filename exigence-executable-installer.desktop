@@ -4,10 +4,11 @@ Type=Application
 Name=Exigence Executable Installer
 Comment=installs executable by copying and pasting
 Keywords=Exigence-executable-installer;installer;exigence;install
-Exec=/usr/bin/exigence-executable-installer.py
+Exec=su /usr/bin/exigence-executable-installer.py
 Icon=Executable-Installer.png
 Terminal=true
 Categories=Executables;Installer;Utitlity;
 StartupNotify=true
+
 
 
