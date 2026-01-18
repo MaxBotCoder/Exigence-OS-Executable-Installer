@@ -2,7 +2,7 @@
 import os
 
 #starting message
-print("Welcome to the exigence executable installer, installation script v3")
+print("Welcome to the exigence executable installer, installation script v4")
 
 #root confirmation
 if os.geteuid != 0:
@@ -21,6 +21,7 @@ os.system("mv exigence-executable-installer.desktop /usr/share/applications")
 
 #removes traces of intervention
 print("Coming soon!")
+
 
 
 
