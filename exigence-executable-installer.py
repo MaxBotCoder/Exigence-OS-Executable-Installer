@@ -1,3 +1,6 @@
+# modules
+import os
+
 #welcome message
 print("Welcome to Exegence-OS-executable-installer version 0.1.2.6 alpha")
 print("\nRight click and press copy on the executable then paste it in the terminal below.\n")
@@ -7,9 +10,6 @@ print("Supported executables are: .debs, .appiamge, .run and flatpaks")
 if os.geteuid != 0:
     print("Please run with elevated root privaleges! On debian it is via su but on ubuntu its via sudo su.")
     quit()
-
-# modules
-import os
 
 #variables
 #command input variable
