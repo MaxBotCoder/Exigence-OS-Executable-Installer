@@ -64,9 +64,9 @@ def install_deb():
     detect_executable_name_start()
     yn = input(f"Are you sure you want to install (yes or no): {filename}")
     if yn == "y" or yn == "n":
-    os.system(f"apt update && apt upgrade -y && dpkg -i {commands} -y")
-    print(f"{filename} successfully installed!")
-    quit()
+        os.system(f"apt update && apt upgrade -y && dpkg -i {commands} -y")
+        print(f"{filename} successfully installed!")
+        quit()
 
 #install app image
 def install_appimage():
@@ -74,7 +74,7 @@ def install_appimage():
     detect_executable_name_start()
     yn = input(f"Are you sure you want to install (yes or no): {filename}")
     if yn == "y" or yn == "n":
-    scan_executable_name()
+        scan_executable_name()
     if typical_file is True:
         os.system(f"su && sudo apt update && sudo apt upgrade -y && sudo ./{commands}")
         print(f"{filename} successfully installed!")
@@ -85,7 +85,7 @@ def install_run():
     detect_executable_name_start()
     yn = input(f"Are you sure you want to install (yes or no): {filename}")
     if yn == "y" or yn == "n":
-    scan_executable_name()
+        scan_executable_name()
     if typical_file is True:
         os.system(f"apt update && apt upgrade -y && ./{commands}")
         print(f"{filename} successfully installed!")
@@ -97,9 +97,9 @@ def install_flatpak():
     detect_executable_name_start()
     yn = input(f"Are you sure you want to install (yes or no): {filename}")
     if yn == "y" or yn == "n":
-    os.system(f"apt update && apt upgrade -y && flatpak install --from {commands}")
-    print(f"{filename} successfully installed!")
-    quit()
+        os.system(f"apt update && apt upgrade -y && flatpak install --from {commands}")
+        print(f"{filename} successfully installed!")
+        quit()
 
 #install elf
 def install_elf():
